@@ -1,0 +1,37 @@
+{% load menu %}
+{% load static %}
+
+
+<div class="menu-main">
+
+    <h2 class="menu-title">{{ menu.title }}</h2>
+    <ul>
+        {% for category in categories %}
+            {% if actual_category %}
+                {% if category.slug == actual_category %}
+                    <li>
+                        <a class="menu-link" href="{% url 'menu:menu_with_categories' menu.slug category.category_url %}">
+                            {{ category.title }}
+                        </a>
+                    </li>
+                    {% draw_child_categories category categories_slugs_list %}
+                {% else %}
+                    <li>
+                        <a class="menu-link" href="{% url 'menu:menu_with_categories' menu.slug category.category_url %}">
+                            {{ category.title }}
+                        </a>
+                    </li>
+                {% endif %}
+
+            {% else %}
+                <li>
+                    <a class="menu-link" href="{% url 'menu:menu_with_categories' menu.slug category.category_url %}">
+                        {{ category.title }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+
+<hr>

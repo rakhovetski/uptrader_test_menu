@@ -1,0 +1,47 @@
+.menu-main {
+    background-color: white;
+    border: 1px solid black;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-title a {
+    text-decoration: none;
+    color: rgb(1, 185, 209);
+}
+
+.main-title {
+    text-align: center;
+}
+
+.menu-title {
+    text-align: center;
+    border-bottom: 1px solid black;
+    padding-bottom: 20px;
+    font-size: 25px;
+}
+
+.menu-main li {
+    font-size: 20px;
+    font-weight: 700;
+    list-style: square;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+}
+
+.menu-link:hover {
+    color: rgb(0, 100, 158);
+    text-decoration: underline;
+    transition-duration: 700ms;
+}
+
+hr {
+    border:1px solid rgb(0, 100, 158);
+    width: 80%;
+}

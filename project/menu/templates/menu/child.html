@@ -1,0 +1,29 @@
+{% load menu %}
+{% load static %}
+
+
+<ul>
+    {% for sub_category in category.sub_categories.all %}
+        {% if actual_slug != last_slug %}
+            {% if sub_category.slug == actual_slug %}
+                <a class="menu-link" href="{% url 'menu:menu_with_categories' menu.slug sub_category.category_url %}">
+                    <li>{{ sub_category.title }}</li>
+                    {% draw_child_categories sub_category categories_slugs_list %}
+                </a>
+            {% else %}
+                <a class="menu-link" href="{% url 'menu:menu_with_categories' menu.slug sub_category.category_url %}">
+                    <li>{{ sub_category.title }}</li>
+                </a>
+            {% endif %}
+        {% else %}
+            <a class="menu-link" href="{% url 'menu:menu_with_categories' menu.slug sub_category.category_url %}"> 
+                <li>
+                    {{ sub_category.title }}
+                </li>
+            </a>
+            {% if sub_category.slug == actual_slug %}
+                {% draw_child_categories sub_category categories_slugs_list %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>

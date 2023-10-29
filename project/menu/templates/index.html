@@ -1,0 +1,28 @@
+{% load static %}
+{% load menu %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'menu/css/style.css' %}">
+    <title>UpTrader Menu</title>
+</head>
+<body>
+    <h1 class="main-title">
+        <a class="main-page" href="{% url 'menu:home' %}">
+            UpTrader Test Menu
+        </a>
+    </h1>
+    <div>
+        {% if not menu_slug %}
+            {% draw_another_menu 'first-menu' %}
+            {% draw_another_menu 'second-menu' %} 
+            {% draw_another_menu 'third-menu' %} 
+        {% else %}
+            {% draw_another_menu menu_slug categories_slugs %}
+        {% endif %}
+    </div>
+</body>
+</html>
